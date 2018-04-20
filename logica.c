@@ -15,6 +15,7 @@
 #include <time.h>
 #include <limits.h>
 #include <string.h>
+#include <ctype.h>
 
 void Usage (char *message);
 
@@ -26,17 +27,20 @@ int main(int argc, char **argv) {
     if(argc < 2)
         Usage(argv[0]);
     else{
-        char * logica;
-        char * sep;
-        char * save;
+        char * logica, *sep;
+        char save[10];
+        int n ;
         logica=argv[1];
-        sep=strtok(logica,"~");
-        while(sep!= NULL){
-            save=sep;
-            printf("%s \n",save);
-            sep=strtok(NULL,"~");
-        }
+        strcpy(save,logica);
+        n=strlen(logica);
+        for(int i=0;i<n;i=i+1){
+            if(isalpha(save[i]))
+                printf(" deberia ir la pila de mierda o k \n");
         
+        }
+        //esta maloooo, tengo una idea voy a pensarla bien y te comento.
+        //sep=strtok(save,"~");
+    
         //Insertar Codigo aqui 
     }
 
